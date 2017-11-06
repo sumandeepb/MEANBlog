@@ -1,2 +1,2 @@
-# mean-blog
+# MEANBlog
 MEAN Stack based blog template
