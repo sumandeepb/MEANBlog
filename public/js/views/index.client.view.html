@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+MEAN Blog Template
+Copyright (c) 2017 Sumandeep Banerjee
+MIT License
+-->
+<div ng-controller="IndexController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#!/">Home</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/register">Register</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/logout">Hello <span data-ng-bind="authentication.user.username" data-ng-show="authentication.user"></span>, Logout?</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header class="success" data-ng-show="!authentication.user">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/rubiks-cube-152.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">MEAN Blog Template</span>
+                        <hr class="star-light">
+                        <span class="skills">Customizable Template for Blogging using MEAN Stack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="success" data-ng-show="authentication.user">
+        <div class="container" data-ng-show="!authentication.user.approved">
+            User approval is pending from Administrator. Operations are limited.
+        </div>
+        <div class="container">
+            <ul>
+                <h1><li data-ng-show="authentication.user.permission === 'admin'"><a href="/#!/user/list">User List</a></li></h1>
+            </ul>
+        </div>
+    </section>
+
+    
+    <!-- Portfolio Grid Section -->
+    <!--section data-ng-show="!authentication.user">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>How it looks</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <img src="img/portfolio/create.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <img src="img/portfolio/list.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <img src="img/portfolio/edit.jpg" class="img-responsive" alt="">
+                </div>
+            </div>
+        </div>
+    </section-->
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p class="text-center">Copyright (c) 2017 Sumandeep Banerjee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
